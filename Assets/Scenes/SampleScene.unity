@@ -239,7 +239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   rotationSpeed: 360
-  jumpSpeed: 10
+  jumpSpeed: 3
   sneakingSpeed: 5
   isGrounded: 0
 --- !u!143 &11270885

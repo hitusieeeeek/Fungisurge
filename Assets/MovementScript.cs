@@ -27,11 +27,11 @@ public class MovementScript : MonoBehaviour
         float verticalMove = Input.GetAxis("Vertical");
 
         Vector3 moveDirection = new Vector3(horizontalMove, 0, verticalMove);
-        moveDirection.Normalize();
-        float magnitude = moveDirection.magnitude;
-        magnitude = Mathf.Clamp01(magnitude);
-        transform.Translate(moveDirection * speed * Time.deltaTime, Space.World);
-        conn.SimpleMove(moveDirection * magnitude * speed);
+        //moveDirection.Normalize();
+        //float magnitude = moveDirection.magnitude;
+        //magnitude = Mathf.Clamp01(magnitude);
+        //transform.Translate(moveDirection * speed * Time.deltaTime, Space.World);
+        //conn.SimpleMove(moveDirection * magnitude * speed);
 
         ySpeed += Physics.gravity.y * Time.deltaTime;
         if (Input.GetButtonDown("Jump"))
@@ -40,10 +40,10 @@ public class MovementScript : MonoBehaviour
             isGrounded = false;
         }
 
-        Vector3 vel = moveDirection * magnitude;
+        Vector3 vel = moveDirection;
         vel.y = ySpeed;
-        transform.Translate(vel * Time.deltaTime);
-        conn.Move(vel * Time.deltaTime);
+        //transform.Translate(vel * Time.deltaTime);
+        conn.Move(vel * Time.deltaTime * speed);
 
         if(conn.isGrounded)
         {
